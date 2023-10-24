@@ -52,5 +52,9 @@ function checkInput(punchline){
     let userPunchline = document.querySelector('input#punchline').value
     if (userPunchline.toLowerCase() === punchline.toLowerCase()){
         console.log('yes')
+        const form = document.querySelector('#form')
+        const congratsMessage = document.createElement('p')
+        congratsMessage.textContent = 'You got it!'
+        form.appendChild(congratsMessage)
     }
 }
