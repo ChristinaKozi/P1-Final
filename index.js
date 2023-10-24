@@ -56,4 +56,13 @@ function checkInput(punchline){
     else if (userPunchline.toLowerCase() !== alteredPunchline){
         message.textContent = 'Not quite! Do you give up?'
     }
+    revealPunchline(punchline)
+}
+
+function revealPunchline(punchline) {
+    const button = document.querySelector('#btn')
+    button.addEventListener('click', ()=>{
+        
+    })
+
 }
