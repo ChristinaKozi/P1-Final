@@ -46,23 +46,28 @@ function checkInput(punchline){
     let alteredPunchline = punchline.toLowerCase().slice(0,-1)
     const form = document.querySelector('#form')
     let message = form.querySelector('p')
+    let button = document.querySelector('button')
     if (message === null || message === undefined){
         message = document.createElement('p')
         form.appendChild(message)
+    }
+    if (button === null || button === undefined) {
+        button = document.createElement('button')
     }
     if (userPunchline.toLowerCase() === alteredPunchline){
         message.textContent = 'You got it!'
     }
     else if (userPunchline.toLowerCase() !== alteredPunchline){
         message.textContent = 'Not quite! Do you give up?'
+        button.textContent = 'I give up!'
+        form.appendChild(button)
+        revealPunchline(punchline)
     }
-    revealPunchline(punchline)
 }
 
 function revealPunchline(punchline) {
-    const button = document.querySelector('#btn')
+    const button = document.querySelector('button')
     button.addEventListener('click', ()=>{
-        
+        console.log(punchline)
     })
-
 }
