@@ -23,6 +23,10 @@ function keyPressed(){
                 jokesData.forEach((joke, index) => {
                     if (index === currentIndex){
                         console.log(joke.setup)
+                        let p = document.createElement('p')
+                        p.textContent = joke.setup
+                        let label = document.querySelector('#joke-header')
+                        label.appendChild(p)
                         }
                 });
                 currentIndex++
@@ -37,7 +41,3 @@ function iterateJokeSetup() {
     .then(data => data)
 }
 
-//let p = document.createElement('p')
-            //p.textContent = setup
-            //let label = document.querySelector('#joke-header')
-            //label.appendChild(p)
