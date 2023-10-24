@@ -46,7 +46,7 @@ function checkInput(punchline){
     let alteredPunchline = punchline.toLowerCase().slice(0,-1)
     const form = document.querySelector('#form')
     let message = form.querySelector('p')
-    if (!message){
+    if (message === null || message === undefined){
         message = document.createElement('p')
         form.appendChild(message)
     }
@@ -57,5 +57,3 @@ function checkInput(punchline){
         message.textContent = 'Not quite! Do you give up?'
     }
 }
-
-//add something that will loop over the input multiple times
