@@ -14,7 +14,11 @@ function iterateJokeSetup() {
     .then(res => res.json())
     .then(data => {
         data.map(joke => {
-            console.log(joke.setup)
+            const setup = joke.setup
+            let p = document.createElement('p')
+            p.textContent = setup
+            let label = document.querySelector('#joke-header')
+            label.appendChild(p)
         })
     })
 }
