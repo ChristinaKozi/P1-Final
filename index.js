@@ -11,16 +11,23 @@ function getJokes() {
 }
 
 function keyPressed(){
-    document.addEventListener('keydown', (event)=>{
-        getJokes().then(data => {
-            console.log(data)
-            data.forEach(joke => {
-                if (event.key === 'ArrowRight') {
-                    console.log('right')
-                    console.log(joke.setup)
-                    }
-            })
+    let jokesData
+    let currentIndex = 0
+    getJokes().then(data => {
+        jokesData = data
+        console.log(jokesData)
         })
+    document.addEventListener('keydown', (event)=>{
+        if (event.key === 'ArrowRight' && jokesData) {
+            if (currentIndex < jokesData.length) {
+                jokesData.forEach((joke, index) => {
+                    if (index === currentIndex){
+                        console.log(joke.setup)
+                        }
+                });
+                currentIndex++
+            }
+        }
     })
 }
 
