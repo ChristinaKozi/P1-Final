@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     getJokes()
+    logFirstJoke()
     keyPressed()
     handleSubmit()
 })
@@ -10,17 +11,21 @@ function getJokes() {
     .then(data => data)
 }
 
+function logFirstJoke(){
+    getJokes().then(data => {
+        jokesData = data
+        let h2 = document.createElement('h2')
+        let label = document.querySelector('#joke-header')
+        h2.textContent = jokesData[0].setup
+        label.appendChild(h2)
+        console.log(jokesData[0].punchline)
+        })
+}
+
 function keyPressed(){
     let jokesData
     let currentIndex = 1
-    let h2 = document.createElement('h2')
-    let label = document.querySelector('#joke-header')
-    label.appendChild(h2)
-
-    getJokes().then(data => {
-        jokesData = data
-        h2.textContent = jokesData[0].setup
-        })
+    let h2 = document.querySelector('h2')
 
     document.addEventListener('keydown', (event)=>{
         if (event.key === 'ArrowRight' && jokesData) {
@@ -28,6 +33,8 @@ function keyPressed(){
                 jokesData.forEach((joke, index) => {
                     if (index === currentIndex){
                         h2.textContent = joke.setup
+                        const punchline = joke.punchline
+                        handleSubmit(punchline)
                         }
                 });
                 currentIndex++
@@ -36,13 +43,20 @@ function keyPressed(){
     })
 }
 
-function handleSubmit(){
+function handleSubmit(punchline){
     const form = document.querySelector("#form")
     form.addEventListener('submit', (event) => {
         event.preventDefault()
         let userPunchline = document.querySelector('input#punchline').value
-        console.log(userPunchline)
-    } )
+        console.log(userPunchline.toLowerCase())
+        console.log(punchline.toLowerCase())
+            //if (userPunchline.toLowerCase() === jokesData.punchline.toLowerCase()){
+             //   console.log('yes')
+            //}
+    })
 }
 
+function checkInput(){
+
+}
 
