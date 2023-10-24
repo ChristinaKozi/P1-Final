@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     getJokes()
+    keyPressed()
     iterateJokeSetup()
 })
 
@@ -7,6 +8,14 @@ function getJokes() {
     fetch('http://localhost:3000/jokes')
     .then(res => res.json())
     .then(data => {console.log(data)})
+}
+
+function keyPressed(){
+    document.addEventListener('keydown', (event)=>{
+        if (event.key === 'ArrowRight') {
+            console.log('right')
+        }
+    })
 }
 
 function iterateJokeSetup() {
