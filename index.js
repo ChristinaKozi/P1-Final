@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     getJokes()
     keyPressed()
+    handleSubmit()
 })
 
 function getJokes() {
@@ -35,6 +36,13 @@ function keyPressed(){
     })
 }
 
-
+function handleSubmit(){
+    const form = document.querySelector("#form")
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let userPunchline = document.querySelector('input#punchline').value
+        console.log(userPunchline)
+    } )
+}
 
 
