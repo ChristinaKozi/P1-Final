@@ -1,22 +1,12 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     getJokes()
-    firstJoke()
     keyPressed()
-    iterateJokeSetup()
 })
 
 function getJokes() {
     return fetch('http://localhost:3000/jokes')
     .then(res => res.json())
     .then(data => data)
-}
-
-function firstJoke(){
-    fetch('http://localhost:3000/jokes')
-    .then(res => res.json())
-    .then(jokes => {
-        jokes[0].setup
-    })
 }
 
 function keyPressed(){
@@ -45,9 +35,6 @@ function keyPressed(){
     })
 }
 
-function iterateJokeSetup() {
-    fetch('http://localhost:3000/jokes')
-    .then(res => res.json())
-    .then(data => data)
-}
+
+
 
