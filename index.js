@@ -68,10 +68,14 @@ function revealPunchline(alteredPunchline) {
     const button = document.querySelector('button')
     const answer = document.querySelector('.answer')
     let revealed = false
-    p = document.createElement('p')
     button.addEventListener('click', ()=>{
         if (!revealed){
+            let p = document.createElement('p')
             p.textContent = `${alteredPunchline.toUpperCase()}!`
+            const existingP = answer.querySelector('p')
+            if (existingP) {
+                answer.removeChild(existingP)
+            }
             answer.appendChild(p)
             revealed = true
             console.log(`${alteredPunchline.toUpperCase()}!`)
