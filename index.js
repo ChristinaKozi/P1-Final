@@ -61,13 +61,14 @@ function checkInput(punchline){
         message.textContent = 'Not quite! Do you give up?'
         button.textContent = 'I give up!'
         form.appendChild(button)
-        revealPunchline(punchline)
+        revealPunchline(alteredPunchline)
     }
+    form.reset()
 }
 
-function revealPunchline(punchline) {
+function revealPunchline(alteredPunchline) {
     const button = document.querySelector('button')
     button.addEventListener('click', ()=>{
-        console.log(punchline)
+        console.log(alteredPunchline)
     })
 }
