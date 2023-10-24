@@ -1,0 +1,64 @@
+{
+    "jokes":[
+        {
+            "type":"general",
+            "setup":"What is a tornado's favorite game to play?",
+            "punchline":"Twister!",
+            "id":245
+        },
+        {
+            "type":"general",
+            "setup":"What do you give a sick lemon?",
+            "punchline":"Lemonaid.",
+            "id":236
+        },
+        {
+            "type":"general",
+            "setup":"Why didn’t the skeleton cross the road?",
+            "punchline":"Because he had no guts.",
+            "id":345
+        },
+        {
+            "type":"general",
+            "setup":"What kind of tree fits in your hand?",
+            "punchline":"A palm tree!",
+            "id":262
+        },
+        {
+            "type":"general",
+            "setup":"What do you call a cow with two legs?",
+            "punchline":"Lean beef.",
+            "id":199
+        },
+        {
+            "type":"general",
+            "setup":"What do you call an elephant that doesn’t matter?",
+            "punchline":"An irrelephant.",
+            "id":223
+        },
+        {
+            "type":"general",
+            "setup":"Where does Fonzie like to go for lunch?",
+            "punchline":"Chick-Fil-Eyyyyyyyy.",
+            "id":296
+        },
+        {
+            "type":"general",
+            "setup":"What musical instrument is found in the bathroom?",
+            "punchline":"A tuba toothpaste.",
+            "id":264
+        },
+        {
+            "type":"general",
+            "setup":"Do you know where you can get chicken broth in bulk?",
+            "punchline":"The stock market.",
+            "id":107
+        },
+        {
+            "type":"general",
+            "setup":"A grocery store cashier asked if I would like my milk in a bag.",
+            "punchline":"I told her 'No, thanks. The carton works fine.'",
+            "id":405
+        }
+    ]
+}
