@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', ()=>{
-    getJoke()
+    getJokes()
 })
 
-function getJoke() {
-    fetch('https://official-joke-api.appspot.com/random_ten')
+function getJokes() {
+    fetch('http://localhost:3000/jokes')
     .then(res => res.json())
-    .then(data => {
-        console.log(data)
-    })
+    .then(data => {console.log(data)})
 }
+
