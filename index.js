@@ -16,3 +16,4 @@ function iterateJokeSetup() {
         data.map(joke => console.log(joke.setup))
     })
 }
+
