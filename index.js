@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let jokesData
     getJokes().then(data => {
         jokesData = data
-        logFirstJoke(jokesData)
+        //logFirstJoke(jokesData)
         keyPressed(jokesData)
     })
 })
@@ -12,21 +12,25 @@ function getJokes() {
     .then(res => res.json())
     .then(data => data)
 }
-
+/*
 function logFirstJoke(jokesData){
     let h2 = document.createElement('h2')
     let label = document.querySelector('#joke-header')
     h2.textContent = jokesData[0].setup
     label.appendChild(h2)
-    console.log(jokesData[0].punchline)
-}
+    const punchline = jokesData[0].punchline
+    console.log(punchline)
+    checkInput(punchline)
+}*/
 
 function keyPressed(jokesData){
-    let currentIndex = 1
-    let h2 = document.querySelector('h2')
+    let currentIndex = 0
+    let h2 = document.createElement('h2')
+    let label = document.querySelector('#joke-header')
+    label.appendChild(h2)
     document.addEventListener('keydown', (event)=>{
         if (event.key === 'ArrowRight' && jokesData) {
-            if (currentIndex < jokesData.length) {
+            if (currentIndex < jokesData.length-1) {
                 jokesData.forEach((joke, index) => {
                     if (index === currentIndex){
                         h2.textContent = joke.setup
@@ -40,7 +44,7 @@ function keyPressed(jokesData){
     })
 }
 
-function handleSubmit(punchline){
+function handleSubmit(punchline){ ''
     const form = document.querySelector("#form")
     form.addEventListener('submit', (event) => {
         event.preventDefault()
@@ -50,11 +54,15 @@ function handleSubmit(punchline){
 
 function checkInput(punchline){
     let userPunchline = document.querySelector('input#punchline').value
-    if (userPunchline.toLowerCase() === punchline.toLowerCase()){
+    let alteredPunchline = punchline.toLowerCase().slice(0,-1)
+    const form = document.querySelector('#form')
+    const message = document.createElement('p')
+    form.appendChild(message)
+    if (userPunchline.toLowerCase() === alteredPunchline){
         console.log('yes')
-        const form = document.querySelector('#form')
-        const congratsMessage = document.createElement('p')
-        congratsMessage.textContent = 'You got it!'
-        form.appendChild(congratsMessage)
+        message.textContent = 'You got it!'
+    }
+    else if (userPunchline.toLowerCase() !== alteredPunchline){
+        message.textContent = 'Do you give up?'
     }
 }
