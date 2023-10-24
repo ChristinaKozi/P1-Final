@@ -1,3 +1,4 @@
+let currentIndex = 0
 document.addEventListener('DOMContentLoaded', ()=>{
     let jokesData
     getJokes().then(data => {
@@ -13,30 +14,27 @@ function getJokes() {
 }
 
 function keyPressed(jokesData){
-    let currentIndex = 0
     let h2 = document.createElement('h2')
     let label = document.querySelector('#joke-header')
     label.appendChild(h2)
+    h2.textContent = jokesData[currentIndex].setup
     document.addEventListener('keydown', (event)=>{
         if (event.key === 'ArrowRight' && jokesData) {
             if (currentIndex < jokesData.length-1) {
-                jokesData.forEach((joke, index) => {
-                    if (index === currentIndex){
-                        h2.textContent = joke.setup
-                        const punchline = joke.punchline
-                        handleSubmit(punchline)
-                    }
-                });
                 currentIndex++
+                h2.textContent = jokesData[currentIndex].setup
             }
         }
     })
-}
+    handleSubmit(jokesData)
+ }
 
-function handleSubmit(punchline){ ''
+
+function handleSubmit(jokesData){ 
     const form = document.querySelector("#form")
     form.addEventListener('submit', (event) => {
         event.preventDefault()
+        let punchline = jokesData[currentIndex].punchline
         checkInput(punchline)
     })
 }
@@ -68,7 +66,15 @@ function checkInput(punchline){
 
 function revealPunchline(alteredPunchline) {
     const button = document.querySelector('button')
+    const answer = document.querySelector('.answer')
+    let revealed = false
+    p = document.createElement('p')
     button.addEventListener('click', ()=>{
-        console.log(alteredPunchline)
+        if (!revealed){
+            p.textContent = `${alteredPunchline.toUpperCase()}!`
+            answer.appendChild(p)
+            revealed = true
+            console.log(`${alteredPunchline.toUpperCase()}!`)
+        }
     })
 }
