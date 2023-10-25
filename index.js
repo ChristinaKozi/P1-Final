@@ -1,4 +1,5 @@
 let currentIndex = 0
+const userGiveUps = []
 document.addEventListener('DOMContentLoaded', ()=>{
     let jokesData
     getJokes().then(data => {
@@ -78,7 +79,10 @@ function revealPunchline(alteredPunchline) {
             }
             answer.appendChild(p)
             revealed = true
-            console.log(`${alteredPunchline.toUpperCase()}!`)
-        }
-    })
+            if (!userGiveUps.includes(alteredPunchline)){
+                userGiveUps.push(alteredPunchline)
+                console.log(userGiveUps)
+            }
+            }
+     })
 }
