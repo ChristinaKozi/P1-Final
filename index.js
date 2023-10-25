@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     getJokes().then(data => {
         jokesData = data
         keyPressed(jokesData)
+        handleSubmit(jokesData)
     })
 })
 
@@ -27,7 +28,6 @@ function keyPressed(jokesData){
             }
         }
     })
-    handleSubmit(jokesData)
  }
 
 
