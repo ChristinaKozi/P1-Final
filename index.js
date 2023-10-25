@@ -81,8 +81,12 @@ function revealPunchline(alteredPunchline) {
             revealed = true
             if (!userGiveUps.includes(alteredPunchline)){
                 userGiveUps.push(alteredPunchline)
-                console.log(userGiveUps)
+                logGiveUps(userGiveUps)
             }
-            }
-     })
+        }
+    })
+}
+
+function logGiveUps(userGiveUps){
+    console.log(userGiveUps)
 }
