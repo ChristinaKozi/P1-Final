@@ -89,4 +89,8 @@ function revealPunchline(alteredPunchline) {
 
 function logGiveUps(userGiveUps){
     console.log(userGiveUps)
+    const numberOfGiveUpps = userGiveUps.reduce((acc, item) => {
+        return acc + 1
+    },0)
+    console.log(numberOfGiveUpps)
 }
