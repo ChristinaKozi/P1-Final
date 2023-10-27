@@ -35,9 +35,10 @@ function keyPressed(jokesData){
             }
         }
     })
- }
+}
 
- function removeMessageAndButton() {
+
+function removeMessageAndButton() {
     const form = document.querySelector('#form')
     let message = form.querySelector('p')
     let button = document.querySelector('button')
