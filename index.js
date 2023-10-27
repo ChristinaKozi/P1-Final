@@ -36,11 +36,11 @@ function keyPressed(jokesData){
  }
 
  function removeMessageAndButton() {
-    const form = document.querySelector('#form');
-    let message = form.querySelector('p');
-    let button = document.querySelector('button');
-    form.removeChild(button);
-    form.removeChild(message);
+    const form = document.querySelector('#form')
+    let message = form.querySelector('p')
+    let button = document.querySelector('button')
+    form.removeChild(button)
+    form.removeChild(message)
 }
 
 function handleSubmit(jokesData){ 
