@@ -20,7 +20,7 @@ for the website to have access to the data in the JSON file. Once the page is lo
 }
 ```
 ### Functions
-The function keyPressed() initally loads the first joke setup and the keydown event listener listens for the right arrow key to be pressed to move on to the next joke. It moves on to the next joke setup by incrementing the current index of the data. The function then calls removeMessageAndButton() and clearAnswer() to clear any messages or buttons appended to the DOM when the joke is changed.
+The function keyPressed() initally loads the first joke setup and the keydown event listener listens for the right arrow key to be pressed to move on to the next joke. It moves on to the next joke setup by incrementing the current index of the data. The function then calls removeMessage(), removeButton() and clearAnswer() to clear any messages or buttons appended to the DOM when the joke is changed.
 
 The handleSubmit function defines the current index's punchline which corresponds to the current joke setup on the page. It also invokes the checkInput function which checks if the user's input matches the current index's punchline that has been parsed from the JSON data. If it does match, a <p> tag containing a congratulatory message is appended to the DOM. If it doesn't match, the message asks the user if they give up and a button labeled "I give up!" appears. 
 
