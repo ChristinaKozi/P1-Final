@@ -17,22 +17,31 @@ function getJokes() {
 
 function keyPressed(jokesData){
     //Logs first joke
+
     let label = document.querySelector('#joke-header')
     let h2 = document.createElement('h2')
     label.appendChild(h2)
     h2.textContent = jokesData[currentIndex].setup
-    
+
     //Pressing right arrow cycles through other joke setups
     document.addEventListener('keydown', (event)=>{
         if (event.key === 'ArrowRight') {
             if (currentIndex < jokesData.length-1) {
                 currentIndex++
                 h2.textContent = jokesData[currentIndex].setup
+                removeMessageAndButton()
             }
         }
     })
  }
 
+ function removeMessageAndButton() {
+    const form = document.querySelector('#form');
+    let message = form.querySelector('p');
+    let button = document.querySelector('button');
+    form.removeChild(button);
+    form.removeChild(message);
+}
 
 function handleSubmit(jokesData){ 
     const form = document.querySelector("#form")
