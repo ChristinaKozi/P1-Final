@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
 })
 
+//Fetch joke data
 function getJokes() {
     return fetch('http://localhost:3000/jokes')
     .then(res => res.json())
     .then(data => data)
 }
 
+//Pressing right arrow cycles through joke setups
 function keyPressed(jokesData){
     //Logs first joke
     let label = document.querySelector('#joke-header')
@@ -22,7 +24,7 @@ function keyPressed(jokesData){
     label.appendChild(h2)
     h2.textContent = jokesData[currentIndex].setup
 
-    //Pressing right arrow cycles through other joke setups
+    //Pressing right arrow cycles through remaining joke setups
     document.addEventListener('keydown', (event)=>{
         if (event.key === 'ArrowRight') {
             if (currentIndex < jokesData.length-1) {
