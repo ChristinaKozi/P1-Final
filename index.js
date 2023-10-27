@@ -69,6 +69,7 @@ function checkInput(punchline){
     if (message === null || message === undefined){
         message = document.createElement('p')
         form.appendChild(message)
+        form.reset()
     }
     if (button === null || button === undefined) {
         button = document.createElement('button')
@@ -83,8 +84,8 @@ function checkInput(punchline){
         button.textContent = 'I give up!'
         form.appendChild(button)
         revealPunchline(alteredPunchline)
+        form.reset()
     }
-    form.reset()
 }
 
 function revealPunchline(alteredPunchline) {
