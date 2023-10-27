@@ -17,7 +17,6 @@ function getJokes() {
 
 function keyPressed(jokesData){
     //Logs first joke
-
     let label = document.querySelector('#joke-header')
     let h2 = document.createElement('h2')
     label.appendChild(h2)
@@ -30,6 +29,7 @@ function keyPressed(jokesData){
                 currentIndex++
                 h2.textContent = jokesData[currentIndex].setup
                 removeMessageAndButton()
+                clearAnswer()
             }
         }
     })
@@ -90,6 +90,11 @@ function revealPunchline(alteredPunchline) {
                 logGiveUps(userGiveUps)
             }
     })
+}
+
+function clearAnswer() {
+    const answer = document.querySelector('.answer')
+    answer.innerHTML = ''
 }
 
 function logGiveUps(userGiveUps){
