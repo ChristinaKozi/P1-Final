@@ -68,24 +68,18 @@ function checkInput(punchline){
 function revealPunchline(alteredPunchline) {
     const button = document.querySelector('button')
     const answer = document.querySelector('.answer')
-    let revealed = false
     button.addEventListener('click', ()=>{
-        if (!revealed){
-            let p = document.createElement('p')
-            p.textContent = `${alteredPunchline.toUpperCase()}!`
-            const existingP = answer.querySelector('p')
-            if (existingP) {
-                answer.removeChild(existingP)
-            }
-            answer.appendChild(p)
-            revealed = true
+        answer.innerHTML = ' '
+        let p = document.createElement('p')
+        p.textContent = `${alteredPunchline.toUpperCase()}!`
+        answer.appendChild(p)
             if (!userGiveUps.includes(alteredPunchline)){
                 userGiveUps.push(alteredPunchline)
                 logGiveUps(userGiveUps)
             }
-        }
     })
 }
+
 
 function logGiveUps(userGiveUps){
     const numberOfGiveUps = userGiveUps.reduce((acc, item) => {
