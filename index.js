@@ -80,20 +80,13 @@ function revealPunchline(alteredPunchline) {
     })
 }
 
-
 function logGiveUps(userGiveUps){
     const numberOfGiveUps = userGiveUps.reduce((acc) => {
         return acc + 1
     },0)
-
-    const counter = document.querySelector('.counter p');
-    if (counter) {
-        counter.textContent = `Times you've given up: ${numberOfGiveUps}`
-    }
-    else {
-        const parent = document.querySelector('.counter')
-        const newCounter = document.createElement('p')
-        newCounter.textContent = `Times you've given up: ${numberOfGiveUps}`
-        parent.appendChild(newCounter)
-    }
+    const parent = document.querySelector('.counter')
+    parent.innerHTML = ' '
+    const counter = document.createElement('p')
+    counter.textContent = `Times you've given up: ${numberOfGiveUps}`
+    parent.appendChild(counter)
 }
