@@ -30,7 +30,8 @@ function keyPressed(jokesData){
             if (currentIndex < jokesData.length-1) {
                 currentIndex++
                 h2.textContent = jokesData[currentIndex].setup
-                removeMessageAndButton()
+                removeMessage()
+                removeButton()
                 clearAnswer()
             }
         }
@@ -38,12 +39,16 @@ function keyPressed(jokesData){
 }
 
 
-function removeMessageAndButton() {
+function removeMessage() {
     const form = document.querySelector('#form')
     let message = form.querySelector('p')
+    form.removeChild(message)
+}
+
+function removeButton(){
+    const form = document.querySelector('#form')
     let button = document.querySelector('button')
     form.removeChild(button)
-    form.removeChild(message)
 }
 
 function handleSubmit(jokesData){ 
@@ -70,6 +75,8 @@ function checkInput(punchline){
     }
     if (userPunchline.toLowerCase() === alteredPunchline){
         message.textContent = 'You got it!'
+        removeButton()
+        clearAnswer()
     }
     else if (userPunchline.toLowerCase() !== alteredPunchline){
         message.textContent = 'Not quite! Do you give up?'
