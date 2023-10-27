@@ -16,12 +16,15 @@ function getJokes() {
 }
 
 function keyPressed(jokesData){
-    let h2 = document.createElement('h2')
+    //Logs first joke
     let label = document.querySelector('#joke-header')
+    let h2 = document.createElement('h2')
     label.appendChild(h2)
     h2.textContent = jokesData[currentIndex].setup
+    
+    //Pressing right arrow cycles through other joke setups
     document.addEventListener('keydown', (event)=>{
-        if (event.key === 'ArrowRight' && jokesData) {
+        if (event.key === 'ArrowRight') {
             if (currentIndex < jokesData.length-1) {
                 currentIndex++
                 h2.textContent = jokesData[currentIndex].setup
